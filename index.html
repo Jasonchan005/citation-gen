@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-503ZSLGF0W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-503ZSLGF0W');
+    function trackEvent(action, params) {
+      if (typeof gtag === 'function') gtag('event', action, params || {});
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Citation Generator – APA, MLA, Chicago, GB/T 7714 | CitationGen</title>
+  <meta name="description" content="Generate citations in APA 7th, MLA 9th, Chicago, and GB/T 7714 formats. Free, no sign-up. Support books, websites, journal articles, and more.">
+  <meta name="keywords" content="citation generator, APA citation, MLA citation, Chicago citation, GB/T 7714, citation machine, free citation tool">
+  <meta property="og:title" content="Free Citation Generator – APA, MLA, Chicago, GB/T 7714">
+  <meta property="og:description" content="Generate perfect citations in seconds. APA 7th, MLA 9th, Chicago, GB/T 7714. Free, no sign-up.">
+  <meta property="og:url" content="https://citation-gen.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CitationGen">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Citation Generator">
+  <meta name="twitter:description" content="APA, MLA, Chicago, GB/T 7714 citations. Free, no sign-up.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://citation-gen.vercel.app/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; background: #f8fafc; color: #1e293b; min-height: 100vh; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px; }
+    .header { text-align: center; padding: 32px 20px; background: linear-gradient(135deg, #d97706, #f59e0b); border-radius: 16px; margin-bottom: 20px; color: white; }
+    .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+    .header p { font-size: 14px; opacity: 0.9; }
+    .card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .card h2 { font-size: 16px; margin-bottom: 16px; color: #475569; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 4px; }
+    .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; transition: border 0.15s; }
+    .form-group input:focus, .form-group select:focus { border-color: #d97706; }
+    .form-row { display: flex; gap: 12px; }
+    .form-row .form-group { flex: 1; }
+    .btn { padding: 12px 24px; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+    .btn-primary { background: #d97706; color: white; width: 100%; }
+    .btn-primary:hover { background: #b45309; }
+    .btn-copy { background: #6366f1; color: white; }
+    .btn-copy:hover { background: #4f46e5; }
+    .btn-outline { background: transparent; border: 2px solid #e2e8f0; color: #475569; }
+    .btn-outline:hover { border-color: #d97706; color: #d97706; }
+    .style-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .style-tab { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: 2px solid #e2e8f0; background: white; color: #64748b; transition: all 0.15s; }
+    .style-tab.active { border-color: #d97706; background: #fffbeb; color: #d97706; }
+    .style-tab:hover { border-color: #d97706; }
+    .source-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+    .source-tab { padding: 10px 16px; font-size: 13px; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; color: #64748b; transition: all 0.15s; }
+    .source-tab.active { border-bottom-color: #d97706; color: #d97706; }
+    .citation-result { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; min-height: 60px; margin-top: 16px; font-family: 'Georgia', serif; }
+    .citation-actions { display: flex; gap: 8px; margin-top: 12px; }
+    .citation-actions .btn { flex: 1; text-align: center; }
+    .hidden { display: none; }
+    .tagline { text-align: center; font-size: 12px; color: #94a3b8; padding: 16px; }
+    .tagline a { color: #d97706; text-decoration: none; }
+    @media (max-width: 480px) { .form-row { flex-direction: column; gap: 0; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📝 Citation Generator</h1>
+      <p>APA 7th · MLA 9th · Chicago · GB/T 7714</p>
+    </div>
+
+    <div class="card">
+      <!-- Style Selector -->
+      <div class="style-tabs" id="styleTabs">
+        <div class="style-tab active" data-style="apa">APA 7th</div>
+        <div class="style-tab" data-style="mla">MLA 9th</div>
+        <div class="style-tab" data-style="chicago">Chicago</div>
+        <div class="style-tab" data-style="gbt">GB/T 7714</div>
+      </div>
+
+      <!-- Source Type -->
+      <div class="source-tabs" id="sourceTabs">
+        <div class="source-tab active" data-source="book">📖 Book</div>
+        <div class="source-tab" data-source="website">🌐 Website</div>
+        <div class="source-tab" data-source="journal">📄 Journal</div>
+      </div>
+
+      <!-- Book Form -->
+      <div id="bookForm">
+        <div class="form-group"><label>Author(s)</label><input type="text" id="bookAuthor" placeholder="e.g. Smith, J. D. or 张三"></div>
+        <div class="form-group"><label>Title</label><input type="text" id="bookTitle" placeholder="e.g. The Art of Thinking"></div>
+        <div class="form-group"><label>Publisher</label><input type="text" id="bookPublisher" placeholder="e.g. Oxford University Press"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Year</label><input type="text" id="bookYear" placeholder="e.g. 2023"></div>
+          <div class="form-group"><label>Edition (optional)</label><input type="text" id="bookEdition" placeholder="e.g. 2nd"></div>
+        </div>
+      </div>
+
+      <!-- Website Form -->
+      <div id="websiteForm" class="hidden">
+        <div class="form-group"><label>Author(s)</label><input type="text" id="webAuthor" placeholder="e.g. Johnson, M. or leave blank"></div>
+        <div class="form-group"><label>Page Title</label><input type="text" id="webTitle" placeholder="e.g. How to Write a Research Paper"></div>
+        <div class="form-group"><label>Website Name</label><input type="text" id="webSite" placeholder="e.g. The Guardian"></div>
+        <div class="form-group"><label>URL</label><input type="text" id="webUrl" placeholder="https://..."></div>
+        <div class="form-row">
+          <div class="form-group"><label>Year</label><input type="text" id="webYear" placeholder="e.g. 2023"></div>
+          <div class="form-group"><label>Access Date</label><input type="text" id="webAccess" placeholder="e.g. 2026-05-28"></div>
+        </div>
+      </div>
+
+      <!-- Journal Form -->
+      <div id="journalForm" class="hidden">
+        <div class="form-group"><label>Author(s)</label><input type="text" id="jAuthor" placeholder="e.g. Chen, L. &amp; Wang, Y."></div>
+        <div class="form-group"><label>Article Title</label><input type="text" id="jTitle" placeholder="e.g. AI in Education: A Review"></div>
+        <div class="form-group"><label>Journal Name</label><input type="text" id="jJournal" placeholder="e.g. Nature Education"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Volume</label><input type="text" id="jVolume" placeholder="e.g. 15"></div>
+          <div class="form-group"><label>Issue (optional)</label><input type="text" id="jIssue" placeholder="e.g. 3"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Year</label><input type="text" id="jYear" placeholder="e.g. 2023"></div>
+          <div class="form-group"><label>Pages</label><input type="text" id="jPages" placeholder="e.g. 45-67"></div>
+        </div>
+        <div class="form-group"><label>DOI (optional)</label><input type="text" id="jDoi" placeholder="e.g. 10.1234/example"></div>
+      </div>
+
+      <button class="btn btn-primary" id="generateBtn" style="margin-top:8px;">Generate Citation</button>
+
+      <div id="resultArea" class="hidden">
+        <div class="citation-result" id="citationResult"></div>
+        <div class="citation-actions">
+          <button class="btn btn-copy" id="copyBtn">📋 Copy</button>
+          <button class="btn btn-outline" id="clearBtn">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tagline">
+      <a href="https://citation-gen.vercel.app/">CitationGen</a> — Free citation generator by JCS Labs
+    </div>
+  </div>
+
+  <script>
+    let currentStyle = 'apa';
+    let currentSource = 'book';
+
+    // ─── Tab Switching ────────────────────────────────────
+    document.querySelectorAll('.style-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.style-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentStyle = tab.dataset.style;
+        hideResult();
+        trackEvent('change_style', { tool: 'citation_gen', style: currentStyle });
+      });
+    });
+
+    document.querySelectorAll('.source-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.source-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentSource = tab.dataset.source;
+        document.getElementById('bookForm').classList.toggle('hidden', currentSource !== 'book');
+        document.getElementById('websiteForm').classList.toggle('hidden', currentSource !== 'website');
+        document.getElementById('journalForm').classList.toggle('hidden', currentSource !== 'journal');
+        hideResult();
+        trackEvent('change_source', { tool: 'citation_gen', source: currentSource });
+      });
+    });
+
+    // ─── Generate ──────────────────────────────────────────
+    document.getElementById('generateBtn').addEventListener('click', generate);
+    document.getElementById('copyBtn').addEventListener('click', copyCitation);
+    document.getElementById('clearBtn').addEventListener('click', hideResult);
+
+    function hideResult() {
+      document.getElementById('resultArea').classList.add('hidden');
+    }
+
+    function generate() {
+      let citation = '';
+      
+      if (currentSource === 'book') {
+        const author = document.getElementById('bookAuthor').value.trim();
+        const title = document.getElementById('bookTitle').value.trim();
+        const publisher = document.getElementById('bookPublisher').value.trim();
+        const year = document.getElementById('bookYear').value.trim();
+        const edition = document.getElementById('bookEdition').value.trim();
+        if (!author || !title || !publisher || !year) { alert('Please fill in all required fields (Author, Title, Publisher, Year).'); return; }
+        citation = generateBookCitation(currentStyle, author, title, publisher, year, edition);
+      } else if (currentSource === 'website') {
+        const author = document.getElementById('webAuthor').value.trim();
+        const title = document.getElementById('webTitle').value.trim();
+        const site = document.getElementById('webSite').value.trim();
+        const url = document.getElementById('webUrl').value.trim();
+        const year = document.getElementById('webYear').value.trim();
+        const access = document.getElementById('webAccess').value.trim();
+        if (!title || !site || !url) { alert('Please fill in Title, Website Name, and URL.'); return; }
+        citation = generateWebsiteCitation(currentStyle, author, title, site, url, year, access);
+      } else if (currentSource === 'journal') {
+        const author = document.getElementById('jAuthor').value.trim();
+        const title = document.getElementById('jTitle').value.trim();
+        const journal = document.getElementById('jJournal').value.trim();
+        const volume = document.getElementById('jVolume').value.trim();
+        const issue = document.getElementById('jIssue').value.trim();
+        const year = document.getElementById('jYear').value.trim();
+        const pages = document.getElementById('jPages').value.trim();
+        const doi = document.getElementById('jDoi').value.trim();
+        if (!author || !title || !journal || !volume || !year || !pages) { alert('Please fill in all required fields.'); return; }
+        citation = generateJournalCitation(currentStyle, author, title, journal, volume, issue, year, pages, doi);
+      }
+
+      if (citation) {
+        document.getElementById('citationResult').textContent = citation;
+        document.getElementById('resultArea').classList.remove('hidden');
+        trackEvent('generate_citation', { tool: 'citation_gen', style: currentStyle, source: currentSource });
+      }
+    }
+
+    // ─── Citation Generators ────────────────────────────────
+    function generateBookCitation(style, author, title, publisher, year, edition) {
+      const ed = edition ? ' (' + edition + ' ed.)' : '';
+      switch (style) {
+        case 'apa':
+          return author + ' (' + year + '). <i>' + title + '</i>' + ed + '. ' + publisher + '.';
+        case 'mla':
+          return author + '. <i>' + title + '</i>' + ed + ', ' + publisher + ', ' + year + '.';
+        case 'chicago':
+          return author + '. <i>' + title + '</i>' + ed + '. ' + publisher + ', ' + year + '.';
+        case 'gbt':
+          return author + '. ' + title + '[M]' + ed + '. ' + publisher + ', ' + year + '.';
+        default: return '';
+      }
+    }
+
+    function generateWebsiteCitation(style, author, title, site, url, year, access) {
+      switch (style) {
+        case 'apa':
+          return (author ? author + ' (' + year + '). ' : '') + '<i>' + title + '</i>. ' + site + '. ' + url;
+        case 'mla':
+          return (author ? author + '. ' : '') + '"' + title + '." <i>' + site + '</i>' + (year ? ', ' + year : '') + ', ' + url + '.';
+        case 'chicago':
+          return (author ? author + '. ' : '') + '"' + title + '." ' + site + '. ' + (year ? 'Last modified ' + year + '. ' : '') + url + '.';
+        case 'gbt':
+          return (author ? author + '. ' : '') + title + '[EB/OL]. ' + site + (year ? ', ' + year : '') + ', ' + url + '.';
+        default: return '';
+      }
+    }
+
+    function generateJournalCitation(style, author, title, journal, volume, issue, year, pages, doi) {
+      const iss = issue ? '(' + issue + ')' : '';
+      const doiStr = doi ? ' https://doi.org/' + doi : '';
+      switch (style) {
+        case 'apa':
+          return author + ' (' + year + '). ' + title + '. <i>' + journal + '</i>, <i>' + volume + '</i>' + iss + ', ' + pages + '.' + doiStr;
+        case 'mla':
+          return author + '. "' + title + '." <i>' + journal + '</i>, vol. ' + volume + iss + ', ' + year + ', pp. ' + pages + '.' + doiStr;
+        case 'chicago':
+          return author + '. "' + title + '." <i>' + journal + '</i> ' + volume + iss + ' (' + year + '): ' + pages + '.' + doiStr;
+        case 'gbt':
+          return author + '. ' + title + '[J]. ' + journal + ', ' + year + ', ' + volume + iss + ': ' + pages + '.';
+        default: return '';
+      }
+    }
+
+    function copyCitation() {
+      const text = document.getElementById('citationResult').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+        trackEvent('copy_citation', { tool: 'citation_gen', style: currentStyle, source: currentSource });
+      }).catch(() => {
+        alert('Copy failed. Select the text manually.');
+      });
+    }
+  </script>
+</body>
+</html>
